@@ -1,0 +1,66 @@
+{"Report": {
+    "ReportVersion": "v1",
+    "Desc": "Cut the Funds NodeJS API Test Report - ZAP",
+    "ScanVersion": "v1",
+    "ScanDate": "10:37AM on July 15, 2018",
+    "By": "Abhay Bhargav",
+    "For": "ZAP Team",
+    "Title": "Cut the Funds NodeJS API Test Report - ZAP",
+    "ReportDate": "10:37AM on July 15, 2018",
+    "Sites": {
+        "Port": 3000,
+        "Host": "localhost",
+        "Alerts": {"AlertItem": [
+            {
+                "RiskDesc": "Medium",
+                "Desc": "This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.",
+                "Item": {
+                    "ResponseHeader": "HTTP/1.1 500 Internal Server Error&#xd;\nAccess-Control-Allow-Origin: *&#xd;\nX-DNS-Prefetch-Control: off&#xd;\nX-Frame-Options: DENY&#xd;\nStrict-Transport-Security: max-age=15552000; includeSubDomains&#xd;\nX-Download-Options: noopen&#xd;\nX-Content-Type-Options: nosniff&#xd;\nX-XSS-Protection: 1; mode=block&#xd;\nContent-Type: application/json; charset=utf-8&#xd;\nContent-Length: 59&#xd;\nETag: W/\"3b-OpzrnpBC2M8BgAkuYxSlnFqv2O4\"&#xd;\nDate: Sun, 15 Jul 2018 05:06:22 GMT&#xd;\nConnection: keep-alive&#xd;\n&#xd;",
+                    "Confidence": "Medium",
+                    "Param": "",
+                    "Evidence": "HTTP/1.1 500 Internal Server Error",
+                    "RequestHeader": "POST http://localhost:3000/projects/search_expense_db HTTP/1.1&#xd;\nConnection: keep-alive&#xd;\nAccept: application/json, */*&#xd;\nUser-Agent: RESTinstance/1.0.0b35&#xd;\nContent-Type: application/json&#xd;\nAuthorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYW5keS5yb2JlcnRzQHdpZGdldC5jbyIsImlhdCI6MTUzMTYzMTE4MSwiZXhwIjoxNTMxNzE3NTgxfQ.bYDQmuJfU1ec7S6Ao5LZ5-QlKU9XyaBkbN0dFJRA9yQ&#xd;\nContent-Length: 19&#xd;\nHost: localhost:3000&#xd;\n&#xd;",
+                    "Attack": "",
+                    "URI": "POST : http://localhost:3000/projects/search_expense_db",
+                    "OtherInfo": "",
+                    "RequestBody": "{\"search\": \"Chile\"}",
+                    "ResponseBody": "{\"code\":\"PROTOCOL_ENQUEUE_AFTER_FATAL_ERROR\",\"fatal\":false}"
+                },
+                "RiskCode": 2,
+                "CWEID": 200,
+                "WASCID": 13,
+                "Reference": "",
+                "ItemCount": 1,
+                "Alert": "Application Error Disclosure",
+                "PluginID": 90022,
+                "Solution": "Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user."
+            },
+            {
+                "RiskDesc": "Medium",
+                "Desc": "The site is only served under HTTP and not HTTPS.",
+                "Item": {
+                    "ResponseHeader": "HTTP/1.0 0&#xd;\n&#xd;",
+                    "Confidence": "Medium",
+                    "Param": "",
+                    "Evidence": "",
+                    "RequestHeader": "GET https://localhost:443/ HTTP/1.1&#xd;\nConnection: keep-alive&#xd;\nAccept: */*&#xd;\nUser-Agent: python-requests/2.18.4&#xd;\nHost: localhost:3000&#xd;\nContent-Length: 0&#xd;\n&#xd;",
+                    "Attack": "",
+                    "URI": "GET : http://localhost:3000/",
+                    "OtherInfo": "Failed to connect.\nZAP attempted to connect via: https://localhost:443/",
+                    "RequestBody": "",
+                    "ResponseBody": ""
+                },
+                "RiskCode": 2,
+                "CWEID": 311,
+                "WASCID": 4,
+                "Reference": "https://www.owasp.org/index.php/Transport_Layer_Protection_Cheat_Sheet\nhttps://www.owasp.org/index.php/SSL_Best_Practices\nhttps://letsencrypt.org/",
+                "ItemCount": 1,
+                "Alert": "HTTP Only Site",
+                "PluginID": 10106,
+                "Solution": "Configure your web or application server to use SSL (https)."
+            }
+        ]},
+        "SSL": false,
+        "Name": "http://localhost"
+    }
+}}

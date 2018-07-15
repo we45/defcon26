@@ -1,0 +1,10 @@
+graph LR
+	create_expense(create_expense)-->|receipt uploads|s3(s3)
+	manage_expenses(manage_expenses)-->|expense details/cards HTTP PUT|create_expense(create_expense)
+	manage_expenses(manage_expenses)-->|token HTTP DELETE|delete_expense(delete_expense)
+	user(user)-->|username&password/token HTTP POST|login(login)
+	view_user_profile(view_user_profile)-->|credit/debit card info|add_card(add_card)
+	view_user_profile(view_user_profile)-->|HTTP POST user info|edit_user_profile(edit_user_profile)
+	login(login)-->|token HTTP GET|manage_expenses(manage_expenses)
+	login(login)-->|token HTTP GET|approve_expense(approve_expense)
+	login(login)-->|token HTTP GET|view_user_profile(view_user_profile)

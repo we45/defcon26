@@ -1,0 +1,49 @@
+login_user:
+  description: |
+    As an employee of the organization,
+    I would like to login to the Cut the Funds App to manage my expenses and reimbursements
+  abuse_cases:
+    external_attacker_account_takeover:
+      description: As an external attacker, I would compromise a single/multiple user accounts to gain access to sensitive customer information
+      threat_scenarios:
+        injection user account access:
+          description: Attacker may be able to gain access to user accounts by successfully performing Injection Attacks/RCE driven attacks
+          severity: 3
+          cwe: 89
+          cases:
+            - os_command_injection
+            - template_injection
+            - sql_injection_auto
+            - generic_error_messages
+        end user weak password:
+          description: External attacker may be able to bypass user authentication by compromising weak passwords of users
+          severity: 2
+          cwe: 521
+          cases:
+            - default_passwords
+            - bruteforce_login
+        auth token hijacking mitm:
+          description: Attacker attempts to compromise auth token by gaining access to the end user's auth token by performing Man in the Middle Attacks
+          dread: 7,10,10,5,10
+          cwe: 295,311
+          cases:
+            - ssl_checks
+        auth token hijack xss:
+          description: Attacker attempts to steal Auth Token from user with malicious client-side script. Target is any front-end using the API
+          severity: 3
+          cwe: 79
+          cases:
+            - persistent_xss_auto
+            - persistent_xss_manual
+            - http_headers_check
+        generic_auth_bypass:
+          description: Attacker attempts to tamper with parameters related to the Authentication process to bypass authentication and gain access as a user of the application
+          severity: 3
+          cwe: 287,548,302
+          cases:
+            - auth_bypass_manual
+            - directory_indexing
+            - http_verb_tampering_manual
+
+
+

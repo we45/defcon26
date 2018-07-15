@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180715 10:32:40.057" generator="Robot 3.0.4 (Python 2.7.13 on darwin)">
+<suite source="/Users/abhaybhargav/Documents/Code/Python/defcon26/tp/ctf/SecurityTest.robot" id="s1" name="SecurityTest">
+<test id="s1-t1" name="Load Entities">
+<kw name="Load Entity File" library="ThreatPlaybook">
+<doc>Loads Entity File. Looks for by default in entities/entities_connections.yml in the CWD.</doc>
+<status status="PASS" endtime="20180715 10:32:40.847" starttime="20180715 10:32:40.831"></status>
+</kw>
+<status status="PASS" endtime="20180715 10:32:40.848" critical="yes" starttime="20180715 10:32:40.831"></status>
+</test>
+<test id="s1-t2" name="Create Entities">
+<kw name="Find Or Create Entities" library="ThreatPlaybook">
+<doc>Find or Create Entities. Does not duplicate entities, unless they have changed in someway from a previous occasion</doc>
+<status status="PASS" endtime="20180715 10:32:40.864" starttime="20180715 10:32:40.849"></status>
+</kw>
+<status status="PASS" endtime="20180715 10:32:40.864" critical="yes" starttime="20180715 10:32:40.848"></status>
+</test>
+<test id="s1-t3" name="Connect Entities">
+<kw name="Find Or Connect Entities" library="ThreatPlaybook">
+<doc>Finds or Connect Entities. Does not duplicate entities, unless they have changed in someway from a previous occasion</doc>
+<status status="PASS" endtime="20180715 10:32:40.905" starttime="20180715 10:32:40.866"></status>
+</kw>
+<status status="PASS" endtime="20180715 10:32:40.905" critical="yes" starttime="20180715 10:32:40.865"></status>
+</test>
+<test id="s1-t4" name="load_test_cases">
+<kw name="Process Test Cases" library="ThreatPlaybook">
+<doc>Processes all test cases in default security_tests directory. If you want to specify a custom location,</doc>
+<status status="PASS" endtime="20180715 10:32:40.976" starttime="20180715 10:32:40.906"></status>
+</kw>
+<status status="PASS" endtime="20180715 10:32:40.976" critical="yes" starttime="20180715 10:32:40.905"></status>
+</test>
+<test id="s1-t5" name="generate threat models">
+<kw name="Find Or Load Cases From Directory" library="ThreatPlaybook">
+<doc>Loads cases from the default cases directory and runs through each file of type yml to load user stories, abuser stories, threat models and linked cases</doc>
+<arguments>
+<arg>link_tests=True</arg>
+</arguments>
+<msg timestamp="20180715 10:32:41.059" level="WARN">Test Case: http_headers_check not found. Ignoring...</msg>
+<msg timestamp="20180715 10:32:41.451" level="WARN">Test Case: http_verb_tampering_manual not found. Ignoring...</msg>
+<msg timestamp="20180715 10:32:41.493" level="WARN">Test Case: http_headers_check not found. Ignoring...</msg>
+<msg timestamp="20180715 10:32:41.558" level="WARN">Test Case: http_headers_check not found. Ignoring...</msg>
+<msg timestamp="20180715 10:32:41.792" level="WARN">Test Case: http_headers_check not found. Ignoring...</msg>
+<msg timestamp="20180715 10:32:41.967" level="WARN">Test Case: http_verb_tampering_manual not found. Ignoring...</msg>
+<msg timestamp="20180715 10:32:41.969" level="INFO">{'auth token hijack xss': {'cases': ['persistent_xss_auto', 'persistent_xss_manual', 'http_headers_check'], 'cwe': 79, 'description': 'Attacker attempts to steal Auth Token from user with malicious client-side script. Target is any front-end using the API', 'severity': 3}, 'end user weak password': {'cases': ['default_passwords', 'bruteforce_login'], 'cwe': 521, 'description': 'Attacker may be able to bypass user authentication by compromising weak passwords of users', 'severity': 2}, 'injection user account access': {'cases': ['os_command_injection', 'template_injection', 'sql_injection_auto', 'generic_error_messages'], 'cwe': 89, 'description': 'Attacker may be able to gain access to user accounts by successfully performing Injection Attacks/RCE driven attacks against some of the unauthenticated API Endpoints in the application', 'severity': 3}, 'primary_key_idor': {'cases': ['idor_manual'], 'cwe': 639, 'description': 'Attacker attempts to use authenticated access and expenseID to gain access to other expenses by reference by ID', 'severity': 3}, 'auth token hijacking mitm': {'cases': ['ssl_checks'], 'cwe': '295,311', 'description': "Attacker attempts to compromise auth token by gaining access to the end user's auth token by performing Man in the Middle Attacks", 'severity': 2}}
+{'auth token hijacking mitm': {'cases': ['ssl_checks'], 'cwe': '295,311', 'description': "Attacker attempts to compromise auth token by gaining access to the end user's auth token by performing Man in the Middle Attacks", 'dread': '7,10,10,5,10'}, 'injection user account access': {'cases': ['os_command_injection', 'template_injection', 'sql_injection_auto', 'generic_error_messages'], 'cwe': 89, 'description': 'Attacker may be able to gain access to user accounts by successfully performing Injection Attacks/RCE driven attacks against some of the unauthenticated API Endpoints in the application', 'severity': 3}, 'end user weak password': {'cases': ['default_passwords', 'bruteforce_login'], 'cwe': 521, 'description': 'Attacker may be able to bypass user authentication by compromising weak passwords of users', 'severity': 2}, 'end user default password': {'cases': ['default_passwords'], 'cwe': 284, 'description': 'External attacker may be able to bypass user authentication by compromising default passwords of users', 'severity': 3}, 'generic_auth_bypass': {'cases': ['auth_bypass_manual', 'directory_indexing', 'http_verb_tampering_manual'], 'cwe': '287,548,302', 'description': 'Attacker attempts to tamper with parameters related to the Authentication process to bypass authentication and gain access as a user of the application', 'severity': 3}, 'auth token hijack xss': {'cases': ['persistent_xss_auto', 'persistent_xss_manual', 'http_headers_check'], 'cwe': 79, 'description': 'Attacker attempts to steal Auth Token from user with malicious client-side script. Target is any front-end using the API', 'severity': 3}}
+{'auth token hijack xss': {'cases': ['persistent_xss_auto', 'persistent_xss_manual', 'http_headers_check'], 'cwe': 79, 'description': 'Attacker attempts to steal Auth Token from user with malicious client-side script. Target is any front-end using the API', 'severity': 3}, 'auth token hijacking mitm': {'cases': ['ssl_checks'], 'cwe': '295,311', 'description': "Attacker attempts to compromise auth token by gaining access to the end user's auth token by performing Man in the Middle Attacks", 'dread': '7,10,10,5,10'}, 'manager weak password': {'cases': ['default_passwords', 'bruteforce_login'], 'cwe': 521, 'description': 'Attacker may be able to bypass user authentication by compromising weak passwords of manager', 'severity': 2}, 'injection approve expenses': {'cases': ['os_command_injection', 'template_injection', 'sql_injection_auto', 'generic_error_messages'], 'cwe': '89,78,94,95', 'description': 'Attacker may be able to tamper with expense information by successfully performing Injection Attacks/RCE driven attacks against some of the unauthenticated API Endpoints in the application', 'severity': 3}, 'idor privilege escalation': {'cases': ['mass_assignment_manual'], 'cwe': 915, 'description': 'Attacker attempts to bypass approval controls through IDOR like attacks and approve expenses as a manager performing Privilege Escalation', 'severity': 3}}
+{'auth token hijack xss': {'cases': ['persistent_xss_auto', 'persistent_xss_manual', 'http_headers_check'], 'cwe': 79, 'description': 'Attacker attempts to steal Auth Token from user with malicious client-side script. Target is any front-end using the API', 'severity': 3}, 'end user weak password': {'cases': ['default_passwords', 'bruteforce_login'], 'cwe': 521, 'description': 'External attacker may be able to bypass user authentication by compromising weak passwords of users', 'severity': 2}, 'auth token hijacking mitm': {'cases': ['ssl_checks'], 'cwe': '295,311', 'description': "Attacker attempts to compromise auth token by gaining access to the end user's auth token by performing Man in the Middle Attacks", 'dread': '7,10,10,5,10'}, 'injection user account access': {'cases': ['os_command_injection', 'template_injection', 'sql_injection_auto', 'generic_error_messages'], 'cwe': 89, 'description': 'Attacker may be able to gain access to user accounts by successfully performing Injection Attacks/RCE driven attacks', 'severity': 3}, 'generic_auth_bypass': {'cases': ['auth_bypass_manual', 'directory_indexing', 'http_verb_tampering_manual'], 'cwe': '287,548,302', 'description': 'Attacker attempts to tamper with parameters related to the Authentication process to bypass authentication and gain access as a user of the application', 'severity': 3}}</msg>
+<status status="PASS" endtime="20180715 10:32:41.970" starttime="20180715 10:32:40.978"></status>
+</kw>
+<status status="PASS" endtime="20180715 10:32:41.970" critical="yes" starttime="20180715 10:32:40.977"></status>
+</test>
+<test id="s1-t6" name="Create Targets">
+<kw name="Find Or Create Target" library="ThreatPlaybook">
+<doc>Creates a target for security testing</doc>
+<arguments>
+<arg>${TARGET_NAME}</arg>
+<arg>${TARGET_URI}</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:32:41.974" starttime="20180715 10:32:41.971"></status>
+</kw>
+<status status="PASS" endtime="20180715 10:32:41.974" critical="yes" starttime="20180715 10:32:41.970"></status>
+</test>
+<test id="s1-t7" name="Run NodeJSScanner">
+<kw name="Run Nodejsscan Against Source" library="RoboNodeJSScan">
+<arguments>
+<arg>${TO_PATH}</arg>
+<arg>${RESULTS_PATH}</arg>
+</arguments>
+<msg timestamp="20180715 10:35:16.543" level="INFO">Successfully ran NodeJSScan against the src. Please find the *.html and *.json files in the results directory</msg>
+<status status="PASS" endtime="20180715 10:35:16.543" starttime="20180715 10:32:41.975"></status>
+</kw>
+<kw name="Parse Nodejsscan Result" library="ThreatPlaybook">
+<doc>will parse a NodeJSScan JSON file and load  into the DB as vulnerabilities.</doc>
+<arguments>
+<arg>${RESULTS_PATH}/nodejsscan.json</arg>
+<arg>${TARGET_NAME}</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:35:16.616" starttime="20180715 10:35:16.543"></status>
+</kw>
+<status status="PASS" endtime="20180715 10:35:16.617" critical="yes" starttime="20180715 10:32:41.974"></status>
+</test>
+<test id="s1-t8" name="Run NPM Audit against packageJSON">
+<kw name="Run Npmaudit Against Source" library="RoboNpmAudit">
+<arguments>
+<arg>${TO_PATH}</arg>
+<arg>${RESULTS_PATH}</arg>
+</arguments>
+<msg timestamp="20180715 10:35:21.038" level="INFO">Successfully ran NPM Audit against the src. Please find the *.json files in the results directory</msg>
+<status status="PASS" endtime="20180715 10:35:21.038" starttime="20180715 10:35:16.618"></status>
+</kw>
+<kw name="Parse Npmaudit Scan Result" library="ThreatPlaybook">
+<doc>will parse a NPM Audit JSON file and load  into the DB as vulnerabilities.</doc>
+<arguments>
+<arg>${RESULTS_PATH}/npm_audit.json</arg>
+<arg>${TARGET_NAME}</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:35:21.048" starttime="20180715 10:35:21.039"></status>
+</kw>
+<status status="PASS" endtime="20180715 10:35:21.048" critical="yes" starttime="20180715 10:35:16.617"></status>
+</test>
+<test id="s1-t9" name="Test for SSL">
+<kw name="Test Ssl Basic" library="RoboSslyze">
+<doc>Uses the `ServerConnectivityTester` functionality of SSlyze to perform a basic test.</doc>
+<arguments>
+<arg>${SSL_TARGET}</arg>
+</arguments>
+<msg timestamp="20180715 10:35:25.658" level="INFO">SSLv2 ciphersuites not accepted</msg>
+<msg timestamp="20180715 10:35:34.979" level="INFO">SSLv3 ciphersuites not accepted</msg>
+<msg timestamp="20180715 10:35:37.916" level="WARN">TLSv1 Cipher Suites accepted</msg>
+<msg timestamp="20180715 10:35:37.917" level="INFO">	TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA</msg>
+<msg timestamp="20180715 10:35:37.917" level="INFO">	TLS_DHE_RSA_WITH_AES_256_CBC_SHA</msg>
+<msg timestamp="20180715 10:35:38.926" level="WARN">TLSv1 Cipher Suites accepted</msg>
+<msg timestamp="20180715 10:35:38.927" level="INFO">	TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA</msg>
+<msg timestamp="20180715 10:35:38.927" level="INFO">	TLS_DHE_RSA_WITH_AES_256_CBC_SHA</msg>
+<msg timestamp="20180715 10:35:44.883" level="INFO">Server TLS Implementation not vulnerable to Heartbleed</msg>
+<msg timestamp="20180715 10:35:46.798" level="INFO">Test for ROBOT Vulnerability</msg>
+<msg timestamp="20180715 10:35:46.799" level="INFO">	Not Vulnerable: The server supports RSA cipher suites but does not act as an oracle</msg>
+<msg timestamp="20180715 10:35:48.095" level="INFO">TLSv1.1 Cipher Suites accepted</msg>
+<msg timestamp="20180715 10:35:48.095" level="INFO">	TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA</msg>
+<msg timestamp="20180715 10:35:48.095" level="INFO">	TLS_DHE_RSA_WITH_AES_256_CBC_SHA</msg>
+<msg timestamp="20180715 10:35:51.965" level="INFO">TLSv1.2 Cipher Suites accepted</msg>
+<msg timestamp="20180715 10:35:51.965" level="INFO">	TLS_DHE_RSA_WITH_AES_256_CBC_SHA256</msg>
+<msg timestamp="20180715 10:35:51.966" level="INFO">	TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA</msg>
+<msg timestamp="20180715 10:35:51.966" level="INFO">	TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384</msg>
+<msg timestamp="20180715 10:35:51.966" level="INFO">	TLS_DHE_RSA_WITH_AES_256_CBC_SHA</msg>
+<msg timestamp="20180715 10:35:51.966" level="INFO">	TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384</msg>
+<msg timestamp="20180715 10:35:51.966" level="INFO">	TLS_DHE_RSA_WITH_AES_256_GCM_SHA384</msg>
+<msg timestamp="20180715 10:35:51.966" level="INFO">	TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</msg>
+<msg timestamp="20180715 10:35:51.966" level="INFO">	TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</msg>
+<status status="PASS" endtime="20180715 10:35:51.969" starttime="20180715 10:35:21.050"></status>
+</kw>
+<kw name="Test Ssl Server Headers" library="RoboSslyze">
+<doc>Uses the ServerConnectivityTester to identify host headers specific to TLS/SSL implementations to identify</doc>
+<arguments>
+<arg>${SSL_TARGET}</arg>
+</arguments>
+<msg timestamp="20180715 10:35:57.892" level="INFO">Test for HSTS Header</msg>
+<msg timestamp="20180715 10:35:57.893" level="INFO">	HSTS Header with Preload: False, Include Subdomains: True and max_age: 63072000</msg>
+<msg timestamp="20180715 10:35:57.893" level="INFO">Test for Expect-CT Header</msg>
+<msg timestamp="20180715 10:35:57.893" level="WARN">	No Expect-CT Header found.</msg>
+<status status="PASS" endtime="20180715 10:35:57.893" starttime="20180715 10:35:51.971"></status>
+</kw>
+<kw name="Write Results To Json File" library="RoboSslyze">
+<doc>Writes a JSON report with the findings of the SSLyze run.</doc>
+<arguments>
+<arg>json_file=${SSLYZE_JSON}</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:35:57.894" starttime="20180715 10:35:57.894"></status>
+</kw>
+<kw name="Create And Link Recon" library="ThreatPlaybook">
+<doc>Links recon with the following params</doc>
+<arguments>
+<arg>sslyze</arg>
+<arg>${TARGET_NAME}</arg>
+<arg>file_name=${RESULTS_PATH}/sslyze.json</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:35:57.917" starttime="20180715 10:35:57.895"></status>
+</kw>
+<status status="PASS" endtime="20180715 10:35:57.917" critical="yes" starttime="20180715 10:35:21.049"></status>
+</test>
+<test id="s1-t10" name="Initialize ZAP">
+<kw name="Start Gui Zap" library="RoboZap">
+<doc>Start OWASP ZAP with a GUI</doc>
+<arguments>
+<arg>${ZAP_PATH}</arg>
+</arguments>
+<msg timestamp="20180715 10:36:07.926" level="INFO">/Applications/OWASP_ZAP.app/Contents/Java/zap.sh -config api.disablekey=true -port 8090</msg>
+<status status="PASS" endtime="20180715 10:36:07.927" starttime="20180715 10:35:57.918"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20180715 10:36:17.929" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20180715 10:36:17.930" starttime="20180715 10:36:07.928"></status>
+</kw>
+<kw name="Zap Open Url" library="RoboZap">
+<doc>Invoke URLOpen with ZAP</doc>
+<arguments>
+<arg>http://${TARGET_URI}</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:36:21.971" starttime="20180715 10:36:17.930"></status>
+</kw>
+<tags>
+<tag>zap_init</tag>
+</tags>
+<status status="PASS" endtime="20180715 10:36:21.971" critical="yes" starttime="20180715 10:35:57.918"></status>
+</test>
+<test id="s1-t11" name="Authenticate to Cut the Funds as Admin">
+<kw name="Post" library="REST">
+<doc>Make a ``POST`` request call to a specified ``endpoint``.</doc>
+<arguments>
+<arg>/users/login</arg>
+<arg>{"email": "andy.roberts@widget.co", "password": "spiderman"}</arg>
+</arguments>
+<assign>
+<var>&amp;{res}</var>
+</assign>
+<msg timestamp="20180715 10:36:22.019" level="INFO">&amp;{res} = { seconds=0.01216 | status=200 | body={u'userType': u'manager', u'token': u'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYW5keS5yb2JlcnRzQHdpZGdldC5jbyIsImlhdCI6MTUzMTYzMTE4MSwiZXhwIjoxNTMxNzE3NTg...</msg>
+<status status="PASS" endtime="20180715 10:36:22.019" starttime="20180715 10:36:21.974"></status>
+</kw>
+<kw name="Integer" library="REST">
+<arguments>
+<arg>response status</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:36:22.020" starttime="20180715 10:36:22.019"></status>
+</kw>
+<kw name="Boolean" library="REST">
+<arguments>
+<arg>response body auth</arg>
+<arg>true</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:36:22.021" starttime="20180715 10:36:22.021"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${TOKEN}</arg>
+<arg>${res.body["token"]}</arg>
+</arguments>
+<msg timestamp="20180715 10:36:22.025" level="INFO">${TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYW5keS5yb2JlcnRzQHdpZGdldC5jbyIsImlhdCI6MTUzMTYzMTE4MSwiZXhwIjoxNTMxNzE3NTgxfQ.bYDQmuJfU1ec7S6Ao5LZ5-QlKU9XyaBkbN0dFJRA9yQ</msg>
+<status status="PASS" endtime="20180715 10:36:22.025" starttime="20180715 10:36:22.022"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${TOKEN}</arg>
+</arguments>
+<msg timestamp="20180715 10:36:22.026" level="INFO">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYW5keS5yb2JlcnRzQHdpZGdldC5jbyIsImlhdCI6MTUzMTYzMTE4MSwiZXhwIjoxNTMxNzE3NTgxfQ.bYDQmuJfU1ec7S6Ao5LZ5-QlKU9XyaBkbN0dFJRA9yQ</msg>
+<status status="PASS" endtime="20180715 10:36:22.026" starttime="20180715 10:36:22.026"></status>
+</kw>
+<tags>
+<tag>walk_web_service</tag>
+</tags>
+<status status="PASS" endtime="20180715 10:36:22.027" critical="yes" starttime="20180715 10:36:21.972"></status>
+</test>
+<test id="s1-t12" name="Search the Currency Lookup Service">
+<kw type="setup" name="Set Headers" library="REST">
+<arguments>
+<arg>{ "Authorization": "${TOKEN}" }</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:36:22.028" starttime="20180715 10:36:22.028"></status>
+</kw>
+<kw name="Post" library="REST">
+<doc>Make a ``POST`` request call to a specified ``endpoint``.</doc>
+<arguments>
+<arg>/projects/search_expense_db</arg>
+<arg>{ "search": "Chile" }</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:36:22.043" starttime="20180715 10:36:22.029"></status>
+</kw>
+<kw name="Integer" library="REST">
+<arguments>
+<arg>response status</arg>
+<arg>200</arg>
+</arguments>
+<msg timestamp="20180715 10:36:22.046" level="FAIL">500 is not one of [200]
+
+Failed validating u'enum' in schema:
+    {u'enum': [200], u'example': 500, 'type': u'integer'}
+
+On instance:
+    500</msg>
+<status status="FAIL" endtime="20180715 10:36:22.046" starttime="20180715 10:36:22.044"></status>
+</kw>
+<tags>
+<tag>walk_web_service</tag>
+</tags>
+<status status="FAIL" endtime="20180715 10:36:22.046" critical="yes" starttime="20180715 10:36:22.027">500 is not one of [200]
+
+Failed validating u'enum' in schema:
+    {u'enum': [200], u'example': 500, 'type': u'integer'}
+
+On instance:
+    500</status>
+</test>
+<test id="s1-t13" name="ZAP Contextualize">
+<kw name="Zap Define Context" library="RoboZap">
+<doc>Add Target to a context and use the context to perform all scanning/spidering operations</doc>
+<arguments>
+<arg>${CONTEXT}</arg>
+<arg>http://${TARGET_URI}</arg>
+</arguments>
+<assign>
+<var>${contextid}</var>
+</assign>
+<msg timestamp="20180715 10:36:28.153" level="INFO">${contextid} = 2</msg>
+<status status="PASS" endtime="20180715 10:36:28.154" starttime="20180715 10:36:22.048"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${CONTEXT_ID}</arg>
+<arg>${contextid}</arg>
+</arguments>
+<msg timestamp="20180715 10:36:28.155" level="INFO">${CONTEXT_ID} = 2</msg>
+<status status="PASS" endtime="20180715 10:36:28.156" starttime="20180715 10:36:28.154"></status>
+</kw>
+<tags>
+<tag>zap_context</tag>
+</tags>
+<status status="PASS" endtime="20180715 10:36:28.156" critical="yes" starttime="20180715 10:36:22.047"></status>
+</test>
+<test id="s1-t14" name="ZAP Active Scan">
+<kw name="Zap Start Ascan" library="RoboZap">
+<doc>Initiates ZAP Active Scan on the target url and context</doc>
+<arguments>
+<arg>${CONTEXT_ID}</arg>
+<arg>http://${TARGET_URI}</arg>
+<arg>${SCANPOLICY}</arg>
+</arguments>
+<assign>
+<var>${scan_id}</var>
+</assign>
+<msg timestamp="20180715 10:36:30.221" level="INFO">${scan_id} = 0</msg>
+<status status="PASS" endtime="20180715 10:36:30.221" starttime="20180715 10:36:28.157"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${SCAN_ID}</arg>
+<arg>${scan_id}</arg>
+</arguments>
+<msg timestamp="20180715 10:36:30.222" level="INFO">${SCAN_ID} = 0</msg>
+<status status="PASS" endtime="20180715 10:36:30.223" starttime="20180715 10:36:30.221"></status>
+</kw>
+<kw name="Zap Scan Status" library="RoboZap">
+<doc>Fetches the status for the spider id provided by the user</doc>
+<arguments>
+<arg>${scan_id}</arg>
+</arguments>
+<msg timestamp="20180715 10:36:30.239" level="INFO">Scan running at 18%</msg>
+<msg timestamp="20180715 10:36:40.251" level="INFO">Scan running at 99%</msg>
+<msg timestamp="20180715 10:36:50.266" level="INFO">Scan running at 99%</msg>
+<status status="PASS" endtime="20180715 10:37:00.276" starttime="20180715 10:36:30.223"></status>
+</kw>
+<tags>
+<tag>zap_scan</tag>
+</tags>
+<status status="PASS" endtime="20180715 10:37:00.276" critical="yes" starttime="20180715 10:36:28.157"></status>
+</test>
+<test id="s1-t15" name="ZAP Generate Report">
+<kw name="Zap Export Report" library="RoboZap">
+<doc>This functionality works on ZAP 2.7.0 only. It leverages the Export Report Library to generate a report.</doc>
+<arguments>
+<arg>${RESULTS_PATH}/${ZAP_REPORT_FILE}</arg>
+<arg>${REPORT_FORMAT}</arg>
+<arg>${REPORT_TITLE}</arg>
+<arg>${REPORT_AUTHOR}</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:37:00.466" starttime="20180715 10:37:00.278"></status>
+</kw>
+<tags>
+<tag>zap_generate_report</tag>
+</tags>
+<status status="PASS" endtime="20180715 10:37:00.467" critical="yes" starttime="20180715 10:37:00.277"></status>
+</test>
+<test id="s1-t16" name="Write ZAP Results to DB">
+<kw name="Parse Zap Json" library="ThreatPlaybook">
+<doc>will parse a ZAP JSON file and load  into the DB as vulnerabilities. The Vulnerabilities link with the Threat Models by CWE</doc>
+<arguments>
+<arg>${RESULTS_PATH}/${ZAP_REPORT_FILE}</arg>
+<arg>${TARGET_NAME}</arg>
+<arg>${TARGET_URI}</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:37:00.478" starttime="20180715 10:37:00.468"></status>
+</kw>
+<status status="PASS" endtime="20180715 10:37:00.478" critical="yes" starttime="20180715 10:37:00.467"></status>
+</test>
+<test id="s1-t17" name="Auth Custom Exploit">
+<kw name="Authenticate to web service as a regular user">
+<kw name="Post" library="REST">
+<doc>Make a ``POST`` request call to a specified ``endpoint``.</doc>
+<arguments>
+<arg>/users/login</arg>
+<arg>{"email": "maya.williams@widget.co", "password": "superman123"}</arg>
+</arguments>
+<assign>
+<var>&amp;{res}</var>
+</assign>
+<msg timestamp="20180715 10:37:00.495" level="INFO">&amp;{res} = { seconds=0.010902 | status=200 | body={u'userType': u'user', u'token': u'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoibWF5YS53aWxsaWFtc0B3aWRnZXQuY28iLCJpYXQiOjE1MzE2MzEyMjAsImV4cCI6MTUzMTcxNzYyM...</msg>
+<status status="PASS" endtime="20180715 10:37:00.495" starttime="20180715 10:37:00.480"></status>
+</kw>
+<kw name="Integer" library="REST">
+<arguments>
+<arg>response status</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:37:00.496" starttime="20180715 10:37:00.495"></status>
+</kw>
+<kw name="Boolean" library="REST">
+<arguments>
+<arg>response body auth</arg>
+<arg>true</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:37:00.497" starttime="20180715 10:37:00.496"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${TOKEN}</arg>
+<arg>${res.body["token"]}</arg>
+</arguments>
+<msg timestamp="20180715 10:37:00.498" level="INFO">${TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoibWF5YS53aWxsaWFtc0B3aWRnZXQuY28iLCJpYXQiOjE1MzE2MzEyMjAsImV4cCI6MTUzMTcxNzYyMH0.WhUjbz2uLJqBBl4D3Ujt0E1G0YNxtEFqt-QXOko8qQk</msg>
+<status status="PASS" endtime="20180715 10:37:00.498" starttime="20180715 10:37:00.497"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${TOKEN}</arg>
+</arguments>
+<msg timestamp="20180715 10:37:00.499" level="INFO">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoibWF5YS53aWxsaWFtc0B3aWRnZXQuY28iLCJpYXQiOjE1MzE2MzEyMjAsImV4cCI6MTUzMTcxNzYyMH0.WhUjbz2uLJqBBl4D3Ujt0E1G0YNxtEFqt-QXOko8qQk</msg>
+<status status="PASS" endtime="20180715 10:37:00.499" starttime="20180715 10:37:00.498"></status>
+</kw>
+<status status="PASS" endtime="20180715 10:37:00.499" starttime="20180715 10:37:00.479"></status>
+</kw>
+<tags>
+<tag>custom_exploit</tag>
+</tags>
+<status status="PASS" endtime="20180715 10:37:00.499" critical="yes" starttime="20180715 10:37:00.479"></status>
+</test>
+<test id="s1-t18" name="Create Expense for Custom Exploit">
+<kw type="setup" name="Set Headers" library="REST">
+<arguments>
+<arg>{ "Authorization": "${TOKEN}" }</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:37:00.501" starttime="20180715 10:37:00.500"></status>
+</kw>
+<kw name="Create a Regular Expense">
+<kw name="Post" library="REST">
+<doc>Make a ``POST`` request call to a specified ``endpoint``.</doc>
+<arguments>
+<arg>/expenses/create_expense</arg>
+<arg>{"name": "Dinner at TGIF", "projectId": "5ace0e85b10d64111c00adb2", "merchant": "TGIF", "reason": "Food Expenses at Conference", "amount": 80}</arg>
+</arguments>
+<assign>
+<var>&amp;{res}</var>
+</assign>
+<msg timestamp="20180715 10:37:00.540" level="INFO">&amp;{res} = { seconds=0.034861 | status=201 | body={u'message': u'successfully saved', u'expense': u'5b4ad674a3c003051c83b288'} | headers={'Content-Length': '69', 'X-XSS-Protection': '1; mode=block', 'X-Download-...</msg>
+<status status="PASS" endtime="20180715 10:37:00.540" starttime="20180715 10:37:00.501"></status>
+</kw>
+<kw name="Integer" library="REST">
+<arguments>
+<arg>response status</arg>
+<arg>201</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:37:00.541" starttime="20180715 10:37:00.541"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${EXPENSE_ID}</arg>
+<arg>${res.body["expense"]}</arg>
+</arguments>
+<msg timestamp="20180715 10:37:00.546" level="INFO">${EXPENSE_ID} = 5b4ad674a3c003051c83b288</msg>
+<status status="PASS" endtime="20180715 10:37:00.546" starttime="20180715 10:37:00.542"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${EXPENSE_ID}</arg>
+</arguments>
+<msg timestamp="20180715 10:37:00.546" level="INFO">5b4ad674a3c003051c83b288</msg>
+<status status="PASS" endtime="20180715 10:37:00.546" starttime="20180715 10:37:00.546"></status>
+</kw>
+<status status="PASS" endtime="20180715 10:37:00.547" starttime="20180715 10:37:00.501"></status>
+</kw>
+<kw name="Update Expense with Approved Tag">
+<kw name="Post" library="REST">
+<doc>Make a ``POST`` request call to a specified ``endpoint``.</doc>
+<arguments>
+<arg>/expenses/update_expense/${EXPENSE_ID}</arg>
+<arg>{"isApproved": true}</arg>
+</arguments>
+<assign>
+<var>&amp;{res}</var>
+</assign>
+<msg timestamp="20180715 10:37:00.565" level="INFO">&amp;{res} = { seconds=0.012847 | status=200 | body={u'files': [], u'merchant': u'TGIF', u'name': u'Dinner at TGIF', u'isApproved': True, u'reason': u'Food Expenses at Conference', u'project': u'5ace0e85b10d64111c...</msg>
+<status status="PASS" endtime="20180715 10:37:00.565" starttime="20180715 10:37:00.548"></status>
+</kw>
+<kw name="Integer" library="REST">
+<arguments>
+<arg>response status</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:37:00.566" starttime="20180715 10:37:00.565"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>Insecure Direct Object Reference - Mass Assignment</arg>
+</arguments>
+<assign>
+<var>${vul_name}</var>
+</assign>
+<msg timestamp="20180715 10:37:00.566" level="INFO">${vul_name} = Insecure Direct Object Reference - Mass Assignment</msg>
+<status status="PASS" endtime="20180715 10:37:00.566" starttime="20180715 10:37:00.566"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>Custom Exploit Script</arg>
+</arguments>
+<assign>
+<var>${tool}</var>
+</assign>
+<msg timestamp="20180715 10:37:00.567" level="INFO">${tool} = Custom Exploit Script</msg>
+<status status="PASS" endtime="20180715 10:37:00.567" starttime="20180715 10:37:00.566"></status>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<doc>Converts the given item to an integer number.</doc>
+<arguments>
+<arg>285</arg>
+</arguments>
+<assign>
+<var>${cwe}</var>
+</assign>
+<msg timestamp="20180715 10:37:00.568" level="INFO">${cwe} = 285</msg>
+<status status="PASS" endtime="20180715 10:37:00.568" starttime="20180715 10:37:00.567"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>The update expense function is vulnerable to a Mass-Assignment style Insecure Direct Object Reference, where the attacker can guess the name of the named parameters and bypass authorization"</arg>
+</arguments>
+<assign>
+<var>${description}</var>
+</assign>
+<msg timestamp="20180715 10:37:00.568" level="INFO">${description} = The update expense function is vulnerable to a Mass-Assignment style Insecure Direct Object Reference, where the attacker can guess the name of the named parameters and bypass authorization"</msg>
+<status status="PASS" endtime="20180715 10:37:00.568" starttime="20180715 10:37:00.568"></status>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<doc>Converts the given item to an integer number.</doc>
+<arguments>
+<arg>3</arg>
+</arguments>
+<assign>
+<var>${severity}</var>
+</assign>
+<msg timestamp="20180715 10:37:00.569" level="INFO">${severity} = 3</msg>
+<status status="PASS" endtime="20180715 10:37:00.569" starttime="20180715 10:37:00.569"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>name=${vul_name}</arg>
+<arg>tool=${tool}</arg>
+<arg>cwe=${cwe}</arg>
+<arg>description=${description}</arg>
+<arg>severity=${severity}</arg>
+<arg>target_name=${TARGET_NAME}</arg>
+</arguments>
+<assign>
+<var>&amp;{vul_dict}</var>
+</assign>
+<msg timestamp="20180715 10:37:00.572" level="INFO">&amp;{vul_dict} = { name=Insecure Direct Object Reference - Mass Assignment | tool=Custom Exploit Script | cwe=285 | description=The update expense function is vulnerable to a Mass-Assignment style Insecure Direct Obje...</msg>
+<status status="PASS" endtime="20180715 10:37:00.572" starttime="20180715 10:37:00.570"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${res.body["isApproved"]}==True</arg>
+<arg>create vulnerability</arg>
+<arg>${vul_dict}</arg>
+</arguments>
+<kw name="Create Vulnerability" library="ThreatPlaybook">
+<doc>| create vulnerability  | vul_obj (dictionary with required &amp; optional fields) |</doc>
+<arguments>
+<arg>${vul_dict}</arg>
+</arguments>
+<status status="PASS" endtime="20180715 10:37:00.577" starttime="20180715 10:37:00.573"></status>
+</kw>
+<status status="PASS" endtime="20180715 10:37:00.577" starttime="20180715 10:37:00.572"></status>
+</kw>
+<status status="PASS" endtime="20180715 10:37:00.578" starttime="20180715 10:37:00.547"></status>
+</kw>
+<tags>
+<tag>custom_exploit</tag>
+</tags>
+<status status="PASS" endtime="20180715 10:37:00.578" critical="yes" starttime="20180715 10:37:00.500"></status>
+</test>
+<test id="s1-t19" name="ZAP Die">
+<kw name="Zap Shutdown" library="RoboZap">
+<doc>Shutdown process for ZAP Scanner</doc>
+<status status="PASS" endtime="20180715 10:37:00.584" starttime="20180715 10:37:00.579"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3</arg>
+</arguments>
+<msg timestamp="20180715 10:37:03.585" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20180715 10:37:03.586" starttime="20180715 10:37:00.585"></status>
+</kw>
+<tags>
+<tag>zap_kill</tag>
+</tags>
+<status status="PASS" endtime="20180715 10:37:03.586" critical="yes" starttime="20180715 10:37:00.578"></status>
+</test>
+<test id="s1-t20" name="Write Final Report">
+<kw name="Convert To Boolean" library="BuiltIn">
+<doc>Converts the given item to Boolean true or false.</doc>
+<arguments>
+<arg>True</arg>
+</arguments>
+<assign>
+<var>${all_true}</var>
+</assign>
+<msg timestamp="20180715 10:37:03.589" level="INFO">${all_true} = True</msg>
+<status status="PASS" endtime="20180715 10:37:03.589" starttime="20180715 10:37:03.588"></status>
+</kw>
+<kw name="Write Markdown Report" library="ThreatPlaybook">
+<doc>Writes a Markdown Report in the results directory of CWD by default</doc>
+<arguments>
+<arg>gen_diagram=${all_true}</arg>
+<arg>gen_threat_model=${all_true}</arg>
+</arguments>
+<msg timestamp="20180715 10:37:04.558" level="INFO">in file write loop</msg>
+<status status="PASS" endtime="20180715 10:37:04.558" starttime="20180715 10:37:03.589"></status>
+</kw>
+<status status="PASS" endtime="20180715 10:37:04.559" critical="yes" starttime="20180715 10:37:03.587"></status>
+</test>
+<status status="FAIL" endtime="20180715 10:37:04.561" starttime="20180715 10:32:40.061"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="19">Critical Tests</stat>
+<stat fail="1" pass="19">All Tests</stat>
+</total>
+<tag>
+<stat fail="0" pass="2">custom_exploit</stat>
+<stat fail="1" pass="1">walk_web_service</stat>
+<stat fail="0" pass="1">zap_context</stat>
+<stat fail="0" pass="1">zap_generate_report</stat>
+<stat fail="0" pass="1">zap_init</stat>
+<stat fail="0" pass="1">zap_kill</stat>
+<stat fail="0" pass="1">zap_scan</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="SecurityTest" pass="19">SecurityTest</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20180715 10:32:41.059" level="WARN">Test Case: http_headers_check not found. Ignoring...</msg>
+<msg timestamp="20180715 10:32:41.451" level="WARN">Test Case: http_verb_tampering_manual not found. Ignoring...</msg>
+<msg timestamp="20180715 10:32:41.493" level="WARN">Test Case: http_headers_check not found. Ignoring...</msg>
+<msg timestamp="20180715 10:32:41.558" level="WARN">Test Case: http_headers_check not found. Ignoring...</msg>
+<msg timestamp="20180715 10:32:41.792" level="WARN">Test Case: http_headers_check not found. Ignoring...</msg>
+<msg timestamp="20180715 10:32:41.967" level="WARN">Test Case: http_verb_tampering_manual not found. Ignoring...</msg>
+<msg timestamp="20180715 10:35:37.916" level="WARN">TLSv1 Cipher Suites accepted</msg>
+<msg timestamp="20180715 10:35:38.926" level="WARN">TLSv1 Cipher Suites accepted</msg>
+<msg timestamp="20180715 10:35:57.893" level="WARN">	No Expect-CT Header found.</msg>
+</errors>
+</robot>

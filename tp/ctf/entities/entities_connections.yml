@@ -1,0 +1,60 @@
+entities:
+  user:
+    description: regular/manager corporate user of the cut the funds app
+    caption: User over the Browser
+    connections:
+      - login: username&password/token HTTP POST
+
+#  manager_user:
+#    description: Manager Type of user of the Cut the funds app
+#    caption: Manager User over the Browser
+#    connections:
+#      - login: username&password/token HTTP POST
+
+  login:
+    description: login to cut the funds app
+    caption: login functionality
+    connections:
+      - manage_expenses: token HTTP GET
+      - approve_expense: token HTTP GET
+      - view_user_profile: token HTTP GET
+
+  manage_expenses:
+    description: CRUD view for expenses
+    caption: for regular user only
+    connections:
+      - create_expense: expense details/cards HTTP PUT
+      - delete_expense: token HTTP DELETE
+
+  create_expense:
+    description: Regular User creates an expense item to be reimbursed
+    caption: regular user create expense
+    connections:
+      - s3: receipt uploads
+
+  delete_expense:
+    description: regular user/manager deletes expense
+    caption: user deletes expense
+
+  s3:
+    description: s3 bucket to store receipt uploads
+    caption: user uploads file storage
+
+  approve_expense:
+    description: Approve User Expenses by Manager
+    caption: for manager only
+
+  view_user_profile:
+    description: View and Manager User Profile
+    caption: for regular and manager user
+    connections:
+      - add_card: credit/debit card info
+      - edit_user_profile: HTTP POST user info
+
+  add_card:
+    description: Add Credit/Debit Card Information
+    caption: linked credit card information
+
+  edit_user_profile:
+    description: Edit certain fields in User Profile
+    caption: edit user profile
