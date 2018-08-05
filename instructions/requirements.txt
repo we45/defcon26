@@ -1,0 +1,12 @@
+robotframework==3.0.4
+RESTinstance
+robotframework-seleniumlibrary
+RoboWFuzz
+RoboZap
+RoboNodeJSScan
+RoboNpmAudit
+ThreatPlaybook
+RoboWFuzz
+RoboShodan
+RoboSslyze
+wfuzz==2.2.9
