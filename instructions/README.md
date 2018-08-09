@@ -16,7 +16,7 @@
 
 ## Basics - RoboSeleniumTest.robot
 * Make sure you are in the root directory (defcon26)
-* Run this command to add this path to the PATH variable: `export PATH=$PATH:$(PWD)`
+* Run this command to add this path to the PATH variable: `export PATH=$PATH:$PWD`
 * Now cd into the `basics` directory
 * Run `robot RoboSeleniumTest.robot`
 
