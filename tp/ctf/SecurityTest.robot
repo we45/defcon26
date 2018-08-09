@@ -26,7 +26,7 @@ ${ZAP_REPORT_FILE}  ctf.json
 ${REPORT_AUTHOR}  Abhay Bhargav
 ${SCANPOLICY}  Light
 
-${TO_PATH}  ﻿/home/we45/Desktop/sources/Cut-The-Funds-NodeJS
+${TO_PATH}  /home/we45/Desktop/sources/Cut-The-Funds-NodeJS
 
 *** Test Cases ***
 Load Entities
