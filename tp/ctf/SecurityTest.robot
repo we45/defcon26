@@ -17,7 +17,7 @@ ${RESULTS_PATH}  ﻿/home/we45/Desktop/tooling/defcon26/tp/ctf/results
 #Sslyze
 ${SSLYZE_JSON}  ﻿/home/we45/Desktop/tooling/defcon26/tp/ctf/results/sslyze.json
 #ZAP
-${ZAP_PATH}  /opt/zaproxy
+${ZAP_PATH}  /opt/zaproxy/
 ${APPNAME}  Cut the Funds NodeJS API
 ${CONTEXT}  Cut_The_Funds_API
 ${REPORT_TITLE}  Cut the Funds NodeJS API Test Report - ZAP
