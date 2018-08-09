@@ -13,11 +13,11 @@ ${TARGET_URI}  localhost:3000
 ${TARGET_HOST}  localhost
 ${SSL_TARGET}  207.148.70.86
 #CONFIG
-${RESULTS_PATH}  /Users/abhaybhargav/Documents/Code/Python/defcon26/tp/ctf/results
+${RESULTS_PATH}  ﻿/home/we45/Desktop/tooling/defcon26/tp/ctf/results
 #Sslyze
-${SSLYZE_JSON}  /Users/abhaybhargav/Documents/Code/Python/defcon26/tp/ctf/results/sslyze.json
+${SSLYZE_JSON}  ﻿/home/we45/Desktop/tooling/defcon26/tp/ctf/results/sslyze.json
 #ZAP
-${ZAP_PATH}  /Applications/OWASP_ZAP.app/Contents/Java/
+${ZAP_PATH}  /opt/zaproxy
 ${APPNAME}  Cut the Funds NodeJS API
 ${CONTEXT}  Cut_The_Funds_API
 ${REPORT_TITLE}  Cut the Funds NodeJS API Test Report - ZAP
@@ -26,7 +26,7 @@ ${ZAP_REPORT_FILE}  ctf.json
 ${REPORT_AUTHOR}  Abhay Bhargav
 ${SCANPOLICY}  Light
 
-${TO_PATH}  /Users/abhaybhargav/Documents/Code/node/cut_the_funds
+${TO_PATH}  ﻿/home/we45/Desktop/sources/Cut-The-Funds-NodeJS
 
 *** Test Cases ***
 Load Entities
@@ -55,16 +55,16 @@ Run NPM Audit against packageJSON
     run npmaudit against source  ${TO_PATH}  ${RESULTS_PATH}
     parse npmaudit scan result  ${RESULTS_PATH}/npm_audit.json  ${TARGET_NAME}
 
-Test for SSL
-    test ssl basic  ${SSL_TARGET}
-    test ssl server headers  ${SSL_TARGET}
-    write results to json file  json_file=${SSLYZE_JSON}
-    create and link recon  sslyze  ${TARGET_NAME}  file_name=${RESULTS_PATH}/sslyze.json
+#Test for SSL
+#    test ssl basic  ${SSL_TARGET}
+#    test ssl server headers  ${SSL_TARGET}
+#    write results to json file  json_file=${SSLYZE_JSON}
+#    create and link recon  sslyze  ${TARGET_NAME}  file_name=${RESULTS_PATH}/sslyze.json
 
 Initialize ZAP
     [Tags]  zap_init
     start gui zap  ${ZAP_PATH}
-    sleep  10
+    sleep  20
     zap open url  http://${TARGET_URI}
 
 Authenticate to Cut the Funds as Admin
@@ -116,7 +116,7 @@ ZAP Die
     sleep  3
 
 Write Final Report
-    ${all_true}=  convert to boolean  True
+    ${all_true}=  convert to boolean  False
     write markdown report  gen_diagram=${all_true}  gen_threat_model=${all_true}
 
 *** Keywords ***
